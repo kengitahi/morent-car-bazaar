@@ -4,8 +4,68 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "40739fced55ae96c8eabbeee9c55c708",
+    "content-hash": "236507ec902fcdd1e81819d2f5b2530e",
     "packages": [
+        {
+            "name": "alirezasedghi/laravel-image-faker",
+            "version": "v1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/AlirezaSedghi/laravel-image-faker.git",
+                "reference": "1b7d84f30f41d0881d6ff20d191c2833bcf1fcbf"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/AlirezaSedghi/laravel-image-faker/zipball/1b7d84f30f41d0881d6ff20d191c2833bcf1fcbf",
+                "reference": "1b7d84f30f41d0881d6ff20d191c2833bcf1fcbf",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=8.0.0"
+            },
+            "type": "laravel",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Alirezasedghi\\LaravelImageFaker\\ImageFakerServiceProvider"
+                    ],
+                    "aliases": {
+                        "ImageFaker": "Alirezasedghi\\LaravelImageFaker\\Facades\\ImageFaker"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Alirezasedghi\\LaravelImageFaker\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Alireza Sedghi",
+                    "email": "alirezasedghi911@gmail.com"
+                }
+            ],
+            "description": "A library to generate fake images for Laravel",
+            "homepage": "https://github.com/AlirezaSedghi/laravel-image-faker",
+            "keywords": [
+                "faker",
+                "image",
+                "image-faker",
+                "laravel",
+                "laravel-faker",
+                "php",
+                "random-image"
+            ],
+            "support": {
+                "issues": "https://github.com/AlirezaSedghi/laravel-image-faker/issues",
+                "source": "https://github.com/AlirezaSedghi/laravel-image-faker/tree/v1.0"
+            },
+            "time": "2023-05-04T18:30:41+00:00"
+        },
         {
             "name": "brick/math",
             "version": "0.11.0",
@@ -5892,6 +5952,79 @@
                 "source": "https://github.com/webmozarts/assert/tree/1.11.0"
             },
             "time": "2022-06-03T18:03:27+00:00"
+        },
+        {
+            "name": "wireui/wireui",
+            "version": "v1.18.9",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/wireui/wireui.git",
+                "reference": "cf49242fa46fdebdb6bf05d50d0cd575b16aaf31"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/wireui/wireui/zipball/cf49242fa46fdebdb6bf05d50d0cd575b16aaf31",
+                "reference": "cf49242fa46fdebdb6bf05d50d0cd575b16aaf31",
+                "shasum": ""
+            },
+            "require": {
+                "laravel/framework": "10.*",
+                "livewire/livewire": "^3.0",
+                "php": "^8.1"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "^3.9",
+                "mockery/mockery": "^1.5",
+                "orchestra/testbench": "^8.0",
+                "orchestra/testbench-dusk": "^8.0",
+                "pestphp/pest": "^1.21",
+                "pestphp/pest-plugin-mock": "^1.0",
+                "phpunit/phpunit": "^9.5",
+                "psy/psysh": "@stable"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "WireUi\\Providers\\WireUiServiceProvider"
+                    ],
+                    "aliases": []
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "WireUi\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Pedro Oliveira",
+                    "email": "pedrolivertwd@gmail.com"
+                }
+            ],
+            "description": "TallStack components",
+            "keywords": [
+                "blade components",
+                "laravel components",
+                "livewire components",
+                "livewire-ui",
+                "wireui"
+            ],
+            "support": {
+                "issues": "https://github.com/wireui/wireui/issues",
+                "source": "https://github.com/wireui/wireui/tree/v1.18.9"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/PH7-Jack",
+                    "type": "github"
+                }
+            ],
+            "time": "2023-10-25T05:18:54+00:00"
         }
     ],
     "packages-dev": [
