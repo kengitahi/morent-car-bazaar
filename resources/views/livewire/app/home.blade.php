@@ -1,5 +1,4 @@
 <div>
-    <x-morent.nav />
     <x-morent.home-hero />
     <div class="date-picker my-4 mt-8">
         <h2 class="text-xl font-bold my-4 text-secondary-900">Search By Date</h2>

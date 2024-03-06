@@ -1,8 +1,10 @@
-<div class="mb-8 sm:mb-4 p-3 shadow-2xl rounded-lg">
+<div class="mb-8 sm:mb-4 p-4 shadow-2xl rounded-lg">
     <header class="flex flex-cols justify-between items-center gap-4 mb-2">
         <div class="space-y-1">
             <h2 class="text-secondary-500 font-bold text-lg">{{$car->name}}</h2>
-            <p class="text-sm text-secondary-400 capitalize">{{$car->type}}</p>
+            <p class="text-sm text-secondary-400 capitalize">
+                <a href="{{route('cars.category', $car->type)}}">{{$car->type}}</a>
+            </p>
         </div>
         <div class="text-secondary-400"> <!-- If car is in wishlist, fill with color red #ED3F3F which will be the text color -->
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
@@ -12,9 +14,9 @@
     </header>
     <main class="space-y-4">
         <div>
-            <img src="{{$car->images}}" alt="{{$car->name}}">
+            <img src="{{$car->images}}" alt="{{$car->name}}" class="rounded-lg">
         </div>
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-1 lg:gap-2">
+        <div class="grid grid-cols-2 gap-1 lg:gap-2">
             <div class="flex gap-1 items-center">
                 <div class="text-secondary-400">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
@@ -62,8 +64,8 @@
                 <p class="text-secondary-400 text-sm line-through">${{$car->discounted_price}}</p>
 
             </div>
-            <a href="#" class="inline-flex items-center px-3 py-2 text-base font-medium text-center text-white bg-blue-700 rounded hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                Rent Now
+            <a href="{{route('car.show', $car->id)}}" class="inline-flex items-center px-3 py-2 text-base font-medium text-center text-white bg-blue-700 rounded hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                Learn More
                 <svg class="w-3.5 h-3.5 ms-2 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
                 </svg>

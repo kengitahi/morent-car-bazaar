@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Livewire\Home;
+use App\Livewire\Cars\Singlecar;
+use App\Livewire\Cars\Singlecategory;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,6 +20,8 @@ use App\Livewire\Home;
 // Route::view('/', 'welcome');
 
 Route::get('/', Home::class)->name('home');
+Route::get('/car/{car}', Singlecar::class)->name('car.show');
+Route::get('/cars/{type}', Singlecategory::class)->name('cars.category');
 
 Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])
