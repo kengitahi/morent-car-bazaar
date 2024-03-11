@@ -1,0 +1,31 @@
+$validated = $this->validate([
+                'name' => ['required', 'string', 'min:2'],
+                'description' => ['required', 'string', 'min:20'],
+                'type' => 'required',
+                'capacity' => 'required',
+                'steering' => 'required',
+                'regular_price' => ['required', 'integer', 'min:5'],
+                'is_featured' => 'required',
+                'fuel' => 'required',
+                'images.*' => ['required', 'mimes:jpg,jpeg,png'],
+            ]);
+
+            auth()
+                ->user()
+                ->cars()
+                ->create([
+                    'name' => $this->name,
+                    'slug' => Str::slug($this->name),
+                    'short_description' => $this->description,
+                    'type' => $this->type,
+                    'capacity' => $this->capacity,
+                    'steering' => $this->steering,
+                    'regular_price' => $this->regular_price,
+                    'discounted_price' => $this->discounted_price,
+                    'is_featured' => $this->is_featured,
+                    'is_available' => $this->is_available,
+                    'fuel' => $this->fuel,
+                    'fuel_capacity' => $this->fuel_capacity,
+                    'range' => $this->range,
+                    'images' => $this->images,
+                ]);

@@ -1,10 +1,13 @@
 <?php
 
+use App\Livewire\Cars\Searchresults;
 use Illuminate\Support\Facades\Route;
 
 use App\Livewire\Home;
 use App\Livewire\Cars\Singlecar;
 use App\Livewire\Cars\Singlecategory;
+use Livewire\Volt\Volt;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -17,11 +20,16 @@ use App\Livewire\Cars\Singlecategory;
 |
 */
 
-// Route::view('/', 'welcome');
+// Route::view('/', 'welcome');{}
 
 Route::get('/', Home::class)->name('home');
-Route::get('/car/{car}', Singlecar::class)->name('car.show');
-Route::get('/cars/{type}', Singlecategory::class)->name('cars.category');
+
+Volt::Route('/car/add', 'cars.addcar')->middleware(['auth'])->name('cars.add');
+
+
+Route::get('/cars/{car}', Singlecar::class)->name('car.show');
+Route::get('/cars/type/{type}', Singlecategory::class)->name('cars.category');
+Route::get('/cars/search/{term}', Searchresults::class)->name('cars.searchresults');
 
 Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])

@@ -13,4 +13,20 @@ class Car extends Model
     protected $guarded = [
         'id',
     ];
+
+    protected $casts = [
+        'images' => 'array',
+    ];
+
+    public function getRouteKeyName()
+    {
+        //slug is a string and this string is the column in your database you created.
+        return "slug";
+    }
+
+    public function user()
+    {
+
+        return $this->belongsTo(User::class);
+    }
 }

@@ -1,3 +1,17 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+/* .add-car-form label:not('.radio') {
+    font-size: 1.125rem;
+    color: #000;
+} */
+
+.add-car-form label,
+.add-car-form h2 {
+    font-size: 1.125rem;
+    color: #000;
+    font-weight: 500;
+    text-transform: capitalize;
+}

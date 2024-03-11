@@ -15,14 +15,14 @@ class Singlecar extends Component
 
     public function mount($car)
     {
-        $this->singleCar = Car::find($car);
+        $this->singleCar = Car::findOrFail($car);
     }
     public function render()
     {
         return view(
             'livewire.cars.singlecar',
             [
-                'popularCars' => Car::where('is_featured', '=', '1')->orderBy('created_at', 'asc')->paginate(4),
+                'recentCars' => Car::where('is_featured', '=', 'true')->orderBy('created_at', 'asc')->paginate(4),
                 'allCars' => Car::paginate(8)
 
             ]

@@ -3,18 +3,14 @@
     <div>
         <div class="grid grid-cols-2 gap-8">
             <div class="space-y-4">
-                <img src="{{$singleCar->images}}" alt="" class="rounded-lg w-full">
+                <img src="{{asset($singleCar->images[0])}}" alt="" class="rounded-lg w-full">
                 <div class=" grid grid-cols-3 gap-4">
                     <!-- Run a for each for the first three images -->
+                    @foreach($singleCar->images as $image)
                     <div class="group rounded-lg hover:border-2 hover:border-primary-500">
-                        <img src="{{$singleCar->images}}" class="rounded-lg group-hover:scale-90 duration-300 group-hover:cursor-pointer">
+                        <img src="{{asset($image)}}" class="rounded-lg group-hover:scale-90 duration-300 group-hover:cursor-pointer">
                     </div>
-                    <div class="group rounded-lg hover:border-2 hover:border-primary-500">
-                        <img src="{{$singleCar->images}}" class="rounded-lg group-hover:scale-90 duration-300 group-hover:cursor-pointer">
-                    </div>
-                    <div class="group rounded-lg hover:border-2 hover:border-primary-500">
-                        <img src="{{$singleCar->images}}" class="rounded-lg group-hover:scale-90 duration-300 group-hover:cursor-pointer">
-                    </div>
+                    @endforeach
                 </div>
             </div>
             <div class="space-y-4">
@@ -95,7 +91,7 @@
                 <a href="#" class="text-primary-500 font-semibold text-base">View All</a>
             </div>
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-                @foreach($popularCars as $car)
+                @foreach($recentCars as $car)
                 <x-morent.cards.singleCar :car='$car' />
                 @endforeach
             </div>

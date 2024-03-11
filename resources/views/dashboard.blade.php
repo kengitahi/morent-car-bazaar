@@ -12,6 +12,8 @@
                     {{ __("You're logged in!") }}
                 </div>
             </div>
+
+            <x-button primary href="{{ route('cars.add') }}">Add Car</x-button>
         </div>
     </div>
 </x-app-layout>

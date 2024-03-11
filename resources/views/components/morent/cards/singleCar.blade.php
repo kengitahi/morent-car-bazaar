@@ -1,7 +1,7 @@
 <div class="mb-8 sm:mb-4 p-4 shadow-2xl rounded-lg">
     <header class="flex flex-cols justify-between items-center gap-4 mb-2">
         <div class="space-y-1">
-            <h2 class="text-secondary-500 font-bold text-lg">{{$car->name}}</h2>
+            <h2 class="text-secondary-500 font-bold text-lg"><a href="{{route('car.show', $car->id)}}"> {{$car->name}}</a></h2>
             <p class="text-sm text-secondary-400 capitalize">
                 <a href="{{route('cars.category', $car->type)}}">{{$car->type}}</a>
             </p>
@@ -14,7 +14,10 @@
     </header>
     <main class="space-y-4">
         <div>
-            <img src="{{$car->images}}" alt="{{$car->name}}" class="rounded-lg">
+            <!-- <img src="{{$car->images[0]}}" alt="{{$car->name}}" class="rounded-lg"> -->
+            <a href="{{route('car.show', $car->id)}}">
+                <img src="{{ asset( $car->images[0])}}" alt="{{$car->name}}" class="rounded-lg">
+            </a>
         </div>
         <div class="grid grid-cols-2 gap-1 lg:gap-2">
             <div class="flex gap-1 items-center">
@@ -32,7 +35,8 @@
                         <path fill="currentColor" d="m22.34 9.33-2-1c-.37-.18-.83-.04-1.01.33-.19.38-.04.83.33 1.01l1.59.79v4.79l-3.75.01V5c0-2-1.34-3-3-3h-8c-1.66 0-3 1-3 3v16.25H2c-.41 0-.75.34-.75.75s.34.75.75.75h17c.41 0 .75-.34.75-.75s-.34-.75-.75-.75h-1.5v-4.49l4.5-.01c.42 0 .75-.34.75-.75v-6a.76.76 0 0 0-.41-.67ZM6 6.89C6 5.5 6.85 5 7.89 5h5.23C14.15 5 15 5.5 15 6.89v1.23C15 9.5 14.15 10 13.11 10H7.89C6.85 10 6 9.5 6 8.11V6.89Zm.5 5.36h3c.41 0 .75.34.75.75s-.34.75-.75.75h-3c-.41 0-.75-.34-.75-.75s.34-.75.75-.75Z" />
                     </svg>
                 </div>
-                <p class="text-secondary-400 text-sm">{{$car->fuel_capacity}} {{$car->fuel=="gasoline"?'L':'Kms'}}</p>
+                <p class="text-secondary-400 text-sm">{{$car->fuel=="gasoline"? $car->fuel_capacity . ' L' :$car->range . ' Kms'}}</p>
+                <!-- <p class="text-secondary-400 text-sm">{{$car->fuel_capacity}} {{$car->fuel=="gasoline"?'L':'Kms'}}</p> -->
             </div>
             <div class="flex gap-1 items-center">
                 <div class="text-secondary-400">
@@ -65,7 +69,7 @@
 
             </div>
             <a href="{{route('car.show', $car->id)}}" class="inline-flex items-center px-3 py-2 text-base font-medium text-center text-white bg-blue-700 rounded hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                Learn More
+                See car
                 <svg class="w-3.5 h-3.5 ms-2 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
                 </svg>

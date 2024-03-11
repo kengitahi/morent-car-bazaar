@@ -10,7 +10,7 @@
             </div>
             <!-- Search input -->
             <div class="hidden sm:block">
-                <x-morent.search class="min-w-fit" />
+                <livewire:cars.searchcomponent class="min-w-fit" />
             </div>
             <!-- Navigation buttons -->
             <div class=" hidden space-x-8 sm:-my-px sm:ms-10 sm:flex items-center">
