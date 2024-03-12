@@ -1,5 +1,5 @@
 <div class="grid grid-cols-[1fr_3fr] mt-8">
-    <livewire:layout.sidebar />
+    <livewire:cars.sidebar />
     <div>
         <div class="grid grid-cols-2 gap-8">
             <div class="space-y-4">

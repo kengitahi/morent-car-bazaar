@@ -7,6 +7,8 @@ use Livewire\Attributes\Validate;
 use Livewire\WithFileUploads;
 use Illuminate\Support\Str;
 
+use App\Models\Car;
+
 
 new
     #[Title("Add Car")]

@@ -1,31 +1,28 @@
-$validated = $this->validate([
-                'name' => ['required', 'string', 'min:2'],
-                'description' => ['required', 'string', 'min:20'],
-                'type' => 'required',
-                'capacity' => 'required',
-                'steering' => 'required',
-                'regular_price' => ['required', 'integer', 'min:5'],
-                'is_featured' => 'required',
-                'fuel' => 'required',
-                'images.*' => ['required', 'mimes:jpg,jpeg,png'],
-            ]);
-
-            auth()
-                ->user()
-                ->cars()
-                ->create([
-                    'name' => $this->name,
-                    'slug' => Str::slug($this->name),
-                    'short_description' => $this->description,
-                    'type' => $this->type,
-                    'capacity' => $this->capacity,
-                    'steering' => $this->steering,
-                    'regular_price' => $this->regular_price,
-                    'discounted_price' => $this->discounted_price,
-                    'is_featured' => $this->is_featured,
-                    'is_available' => $this->is_available,
-                    'fuel' => $this->fuel,
-                    'fuel_capacity' => $this->fuel_capacity,
-                    'range' => $this->range,
-                    'images' => $this->images,
-                ]);
+<div class="">
+    <h2 class="text-secondary-500 font-bold text-2xl mb-4">Type</h2>
+    <div class="space-y-2">
+        @foreach($carTypesCount as $carType)
+        <div class="flex items-center gap-2">
+            <input type="checkbox" id="{{ $carType->type }}" name="car_type" value="{{ $carType->type }}" wire:model="selectedCarTypes[$carType->type]">
+            <label for="{{ $carType->type }}">
+                <span class="capitalize">{{ $carType->type }} </span>
+                <span class="text-secondary-400">({{ $carType->count }})</span>
+            </label>
+        </div>
+        @endforeach
+    </div>
+</div>
+<div>
+    <h2 class="text-secondary-500 font-bold text-2xl mb-4">Capacity</h2>
+    <div class="space-y-2">
+        @foreach($carCapacitiesCount as $carCapacity)
+        <div class="flex items-center gap-2">
+            <input wire:model="car_capacity" name="{{ $carCapacity->capacity }}" type="checkbox" value="{{ $carCapacity->capacity }}" id="{{ $carCapacity->capacity }}">
+            <label for="{{ $carCapacity->capacity }}">
+                <span class="capitalize">{{ $carCapacity->capacity}} People</span>
+                <span class="text-secondary-400">({{ $carCapacity->count }})</span>
+            </label>
+        </div>
+        @endforeach
+    </div>
+</div>

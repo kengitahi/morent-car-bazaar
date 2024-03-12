@@ -10,14 +10,15 @@ use App\Models\Car;
 #[Title('Home')]
 class Home extends Component
 {
+
     public function render()
     {
         return view(
             'livewire.app.home',
             [
                 'popularCars' => Car::where('is_featured', '=', '1')->paginate(4),
-                'allCars' => Car::paginate(12)
-
+                'allCars' => Car::paginate(12),
+                'countedCars' => Car::selectRaw('type, COUNT(*) as count')->groupBy('type')->get()
             ]
         );
     }

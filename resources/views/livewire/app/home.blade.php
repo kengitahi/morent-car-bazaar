@@ -55,4 +55,7 @@
             @endforeach
         </div>
     </div>
+    @foreach($countedCars as $carCount)
+    <p>{{ $carCount->type }}: {{ $carCount->count }}</p>
+    @endforeach
 </div>

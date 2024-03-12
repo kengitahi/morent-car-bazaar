@@ -26,6 +26,6 @@ class Singlecar extends Component
                 'allCars' => Car::paginate(8)
 
             ]
-        );
+        )->title($this->singleCar->name);
     }
 }
