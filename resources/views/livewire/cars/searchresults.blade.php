@@ -1,5 +1,5 @@
 <div class="grid grid-cols-[1fr_5fr] mt-8">
-    <livewire:layout.sidebar />
+    <livewire:cars.sidebar />
     <div class="space-y-2">
         <h2 class="text-secondary-500 font-bold text-2xl capitalize">You Searched for {{$searchTerm}}</h2>
         @if (count($searchedCars)>0)

@@ -4,7 +4,7 @@
         <div class="space-y-2">
             @foreach($carTypesCount as $carType)
             <div class="flex items-center gap-2">
-                <input type="checkbox" id="{{ $carType->type }}" name="carType" value="{{ $carType->type }}" wire:model="selectedCarTypes.{{$carType->type}}" />
+                <input type="checkbox" id="{{ $carType->type }}" value="{{ $carType->type }}" wire:model="selectedCarTypes" />
                 <label for="{{ $carType->type }}">
                     <span class="capitalize">{{ $carType->type }} </span>
                     <span class="text-secondary-400">({{ $carType->count }})</span>
@@ -18,7 +18,7 @@
         <div class="space-y-2">
             @foreach($carCapacitiesCount as $carCapacity)
             <div class="flex items-center gap-2">
-                <input type="checkbox" id="{{ $carCapacity->capacity }}" name="carType" value="{{ $carCapacity->capacity }}" wire:model="selectedCapacities.{{$carCapacity->capacity}}" />
+                <input type="checkbox" id="{{ $carCapacity->capacity }}" value="{{ $carCapacity->capacity }}" wire:model="selectedCapacities" />
                 <label for="{{ $carCapacity->capacity }}">
                     <span class="capitalize">{{ $carCapacity->capacity }} People</span>
                     <span class="text-secondary-400">({{ $carCapacity->count }})</span>

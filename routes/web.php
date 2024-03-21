@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Livewire\Home;
 use App\Livewire\Cars\Singlecar;
 use App\Livewire\Cars\Singlecategory;
+use App\Livewire\Cars\Sidebarsearchresults;
 use Livewire\Volt\Volt;
 
 
@@ -26,7 +27,7 @@ Route::get('/', Home::class)->name('home');
 
 Volt::Route('/car/add', 'cars.addcar')->middleware(['auth'])->name('cars.add');
 
-
+Route::get('/cars/sidebar-search', Sidebarsearchresults::class)->name('cars.sidebarsearchresults');
 Route::get('/cars/{car}', Singlecar::class)->name('car.show');
 Route::get('/cars/type/{type}', Singlecategory::class)->name('cars.category');
 Route::get('/cars/search/{term}', Searchresults::class)->name('cars.searchresults');

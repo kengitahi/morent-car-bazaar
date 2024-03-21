@@ -7,13 +7,18 @@ use App\Models\Car;
 
 class Sidebar extends Component
 {
-
-
     public $selectedCarTypes = [];
     public $selectedCapacities = [];
     public function searchCars()
     {
 
+        // redirect(route(
+        //     'cars.sidebarsearchresults',
+        //     [
+        //         $carCapacities[] = $this->selectedCapacities,
+        //         $carTypes[] = $this->selectedCarTypes
+        //     ]
+        // ));
         $carCapacities = $this->selectedCapacities;
         $carTypes = $this->selectedCarTypes;
 
