@@ -11,18 +11,9 @@ class Sidebar extends Component
     public $selectedCapacities = [];
     public function searchCars()
     {
-
-        // redirect(route(
-        //     'cars.sidebarsearchresults',
-        //     [
-        //         $carCapacities[] = $this->selectedCapacities,
-        //         $carTypes[] = $this->selectedCarTypes
-        //     ]
-        // ));
-        $carCapacities = $this->selectedCapacities;
-        $carTypes = $this->selectedCarTypes;
-
-        dd($carCapacities, $carTypes);
+        return redirect(route('cars.sidebarsearchresults'))
+            ->with('carTypes', $this->selectedCarTypes)
+            ->with('carCapacities', $this->selectedCapacities);
     }
     public function render()
     {

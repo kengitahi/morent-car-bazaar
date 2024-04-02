@@ -3,6 +3,7 @@
 namespace App\Livewire\Cars;
 
 use Livewire\Component;
+use App\Models\Car;
 
 use Illuminate\Http\Request;
 
@@ -12,18 +13,31 @@ class Sidebarsearchresults extends Component
     public $carCapacities;
     public $carTypes;
 
-    public function mount(Request $request)
+    public function mount()
     {
-        $carCapacities = $request->get('carCapacities');
-        $carTypes = $request->get('carTypes');
+        $this->carCapacities = session('carCapacities');
+        $this->carTypes = session('carTypes');
     }
+
+    public function getCarsByType(array $carTypes)
+    {
+        $carsOfSpecificType = Car::inCarType($carTypes)->get()->toArray();
+        return $carsOfSpecificType;
+    }
+    public function getCarsByCapacity(array $carCapacities)
+    {
+        $carsOfSpecificCapacities = Car::inCarCapacity($carCapacities)->get()->toArray();
+        return $carsOfSpecificCapacities;
+    }
+
     public function render()
     {
+
+        $searchedCars = array_merge($carsOfSpecificType = $this->getCarsByType($this->carTypes), $carsOfSpecificCapacities = $this->getCarsByCapacity($this->carCapacities));
         return view(
             'livewire.cars.sidebarsearchresults',
             [
-                'carCapacities' => $this->carCapacities,
-                'carTypes' => $this->carTypes
+                'searchedCars' => array_unique($searchedCars, SORT_REGULAR),
             ]
         )->title('Search Cars');
     }
