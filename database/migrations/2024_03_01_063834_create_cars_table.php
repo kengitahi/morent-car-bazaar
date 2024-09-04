@@ -26,14 +26,14 @@ return new class extends Migration
             $table->string('steering')->default('manual');
 
             $table->integer('regular_price')->default(100);
-            $table->integer('discounted_price')->default(90);
+            $table->integer('discounted_price')->default(90)->nullable();
 
             $table->string('fuel')->default('gasoline'); //Can also be electric
             $table->integer('fuel_capacity')->nullable(); //If gasoline
             $table->integer('range')->nullable(); //If electric
 
             $table->boolean("is_available")->default(true); //Car is only available if it is not rented
-            $table->date('rent_date')->nullable(); //Should be at least today, someone should bot be able to rent a car in the past
+            $table->date('rent_date')->nullable(); //Should be at least today, someone should not be able to rent a car in the past
             $table->date('return_date')->nullable(); //Should be today or in the future, someone should bot be able to return a car in the past
 
             $table->boolean("is_featured")->default(false); //Car can be featured or not

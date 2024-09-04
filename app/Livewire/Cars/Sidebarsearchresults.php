@@ -15,13 +15,15 @@ class Sidebarsearchresults extends Component
 
     public function mount()
     {
-        $this->carCapacities = session('carCapacities');
-        $this->carTypes = session('carTypes');
+        //If either are empty or null, make them equal to an empty array. Happens when a user reloads the search page after finding results
+        $this->carCapacities = session('carCapacities') ?? [];
+        $this->carTypes = session('carTypes') ?? [];
     }
 
-    public function getCarsByType(array $carTypes)
+    public function getCarsByType(array|null $carTypes)
     {
         $carsOfSpecificType = Car::inCarType($carTypes)->get()->toArray();
+
         return $carsOfSpecificType;
     }
     public function getCarsByCapacity(array $carCapacities)

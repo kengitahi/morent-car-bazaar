@@ -25,7 +25,7 @@ use Livewire\Volt\Volt;
 
 Route::get('/', Home::class)->name('home');
 
-Volt::Route('/car/add', 'cars.addcar')->middleware(['auth'])->name('cars.add');
+Volt::Route('/cars/add', 'cars.addcar')->middleware(['auth'])->name('cars.add');
 
 Route::get('/cars/sidebar-search', Sidebarsearchresults::class)->name('cars.sidebarsearchresults');
 Route::get('/cars/{car}', Singlecar::class)->name('car.show');
